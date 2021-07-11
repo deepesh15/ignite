@@ -8,6 +8,7 @@ import {loadDetail} from '../actions/detailAction';
 //components
 import { Link } from "react-router-dom";
 import {smallImage} from '../util';
+import {popUp} from '../animations';
 
 const Game = ({ name, released, image,id }) => {
   //load detail handler
@@ -19,13 +20,14 @@ const Game = ({ name, released, image,id }) => {
   }
 
   return (
-    <StyledGame layoutId={stringPathId} onClick={() => loadDetailHandler()}>
+    <StyledGame variants={popUp} initial="hidden" animate="show" layoutId={stringPathId} onClick={() => loadDetailHandler()}>
       <Link to={`/game/${id}`}>
       <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
       {/* <h3>{name}</h3> */}
       <p>{released}</p>
-      <motion.img layoutId={`image ${stringPathId}`} src={image} alt={name}/>
-      {/* <motion.img layoutId={`image ${stringPathId}`} src={smallImage(image,640)} alt={name}/> */}
+      {/* <motion.img layoutId={`image ${stringPathId}`} src={image} alt={name}/> */}
+      {image ? <motion.img layoutId={`image ${stringPathId}`} src={smallImage(image,600)} alt={name}/> : <motion.img layoutId={`image ${stringPathId}`} src={image} alt={"Image not found"}/>  }
+      
       </Link>
     </StyledGame>
   );
@@ -41,7 +43,7 @@ const StyledGame = styled(motion.div)`
         width: 100%;
         object-fit:cover;
         min-height: 40vh;
-        
+        max-height: 40vh;
     }
 `;
 

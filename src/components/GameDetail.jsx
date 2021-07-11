@@ -21,7 +21,7 @@ const GameDetail = ({ pathID }) => {
   const history = useHistory();
   const exitDetailHandler = (e) => {
     const element = e.target;
-    console.log(element);
+    
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
       history.push("/");
@@ -86,7 +86,7 @@ const GameDetail = ({ pathID }) => {
             <Media>
               <motion.img
                 layoutId={`image ${pathID}`}
-                src={smallImage(game.background_image, 1920)}
+                src={smallImage(game.background_image, 1280)}
                 alt="image"
               />
             </Media>
