@@ -1,4 +1,4 @@
-import  { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -13,6 +13,9 @@ const GlobalStyles = createGlobalStyle`
         }
         &-::-webkit-scrollbar-thumb{
             background-color: darkgray;
+        }
+        &::-webkit-scrollbar-track{
+        background:white;
         }
         
     }
@@ -29,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
     h3{
         font-size: 2rem;
         color: #333;
-        padding: 1.5rem;
+        padding: 1.5rem 0rem;
     }
     p{
         font-size: 1.5rem;
@@ -39,6 +42,12 @@ const GlobalStyles = createGlobalStyle`
     a{
         text-decoration: none;
         color: #333;
+    }
+    img{
+        display: block;
+    }
+    input{
+        font-weight: bold;
     }
 `;
 
