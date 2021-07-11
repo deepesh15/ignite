@@ -29,7 +29,7 @@ const Nav = () => {
     <StyledNav variants={fadeIn} initial="hidden" animate="show">
       <Logo onClick={clearSearch}>
         <img src={logo} alt="logo"></img>
-        <h1>Ignite</h1>
+        <h2>Ignite</h2>
       </Logo>
       <form className="search">
         <input value={textInput} onChange={searchHandler} type="text" />
@@ -68,17 +68,39 @@ const StyledNav = styled(motion.div)`
   button:hover {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
   }
+  @media (max-width:500px){
+    padding: 0rem 0.5rem;
+    input{
+      width: 70%;
+    }
+    button{
+      font-size: 1.5rem;
+      padding: 0.5rem 0.5rem;
+    }
+  }
 `;
 
 const Logo = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Comfortaa', cursive ;
+  font-weight: bold;
+  font-size: 2rem;
   padding: 0.5rem;
   cursor: pointer;
   img {
     height: 3rem;
     width: 3rem;
+  }
+  @media (max-width:500px){
+    margin: 2rem 0rem;
+    padding: 0.2rem;
+    img{
+      width: 2rem;
+      height: 2rem;
+    }
+    font-size: 1.7rem;
   }
 `;
 

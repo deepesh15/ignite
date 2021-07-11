@@ -13,33 +13,33 @@ import gamepad from "../img/gamepad.svg"; //default image
 import nintendo from "../img/nintendo.svg";
 import steam from "../img/steam.svg";
 import xbox from "../img/xbox.svg";
-import starEmpty from '../img/star-empty.png';
-import starFull from '../img/star-full.png';
+import starEmpty from "../img/star-empty.png";
+import starFull from "../img/star-full.png";
 
 const GameDetail = ({ pathID }) => {
   const { screen, game, isLoading } = useSelector((state) => state.detail);
   const history = useHistory();
   const exitDetailHandler = (e) => {
     const element = e.target;
-    
+
     if (element.classList.contains("shadow")) {
       document.body.style.overflow = "auto";
       history.push("/");
     }
   };
   //star logic
-  const getStars = () =>{
-      const stars= [];
-      const rating = Math.floor(game.rating);
-      for(let i=1;i<=5;i++){
-          if(i<=rating){
-              stars.push(<img alt="star-full" key={i} src={starFull}></img>)
-          }else{
-            stars.push(<img alt="star-empty" key={i} src={starEmpty}></img>)
-          }
+  const getStars = () => {
+    const stars = [];
+    const rating = Math.floor(game.rating);
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<img alt="star-full" key={i} src={starFull}></img>);
+      } else {
+        stars.push(<img alt="star-empty" key={i} src={starEmpty}></img>);
       }
-      return stars;
-  }
+    }
+    return stars;
+  };
   //platform images function
   const getPlatform = (platform) => {
     switch (platform) {
@@ -78,7 +78,11 @@ const GameDetail = ({ pathID }) => {
                 <Platforms>
                   {game.platforms &&
                     game.platforms.map((data) => (
-                      <img src={getPlatform(data.platform.name)} key={data.platform.id} alt={data.platform.name}/>
+                      <img
+                        src={getPlatform(data.platform.name)}
+                        key={data.platform.id}
+                        alt={data.platform.name}
+                      />
                     ))}
                 </Platforms>
               </Info>
@@ -141,21 +145,43 @@ const Detail = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 500px) {
+    width: 80%;
+    margin: 1rem 2rem 1rem 2rem;
+    padding: 1rem 1rem;
+    left: 5%;
+  }
 `;
 
 const Stats = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img{
-      width: 2rem;
-      height: 2rem;
+  img {
+    width: 2rem;
+    height: 2rem;
+    display: inline;
+  }
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
       display: inline;
+    }
   }
 `;
 
 const Info = styled(motion.div)`
   text-align: center;
+  @media (max-width: 500px) {
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline;
+    }
+  }
 `;
 
 const Platforms = styled(motion.div)`
@@ -171,10 +197,22 @@ const Media = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 500px) {
+    margin-top: 1rem;
+    img {
+      width: 100%;
+    }
+  }
 `;
 
 const Description = styled(motion.div)`
   margin: 5rem 0rem;
+  @media (max-width: 500px) {
+    margin: 1rem 0rem;
+    img {
+      width: 100%;
+    }
+  }
 `;
 
 export default GameDetail;

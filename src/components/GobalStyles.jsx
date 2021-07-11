@@ -17,7 +17,6 @@ const GlobalStyles = createGlobalStyle`
         &::-webkit-scrollbar-track{
         background:white;
         }
-        
     }
     body{
         font-family: 'Nunito Sans', sans-serif;
@@ -25,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
     }
     h1{
         font-size: 3rem;
-        font-family: 'Zen Tokyo Zoo', cursive;
+        font-family: 'Nunito Sans', sans-serif;
         font-weight: lighter;
         padding: 3rem;
     }
@@ -48,6 +47,18 @@ const GlobalStyles = createGlobalStyle`
     }
     input{
         font-weight: bold;
+    }
+    @media (max-width:500px){
+        h1{
+            font-size: 2.5rem;
+        }
+        h3{
+            font-size: 1.5rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+        
     }
 `;
 
