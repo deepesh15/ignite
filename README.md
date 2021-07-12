@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# Ignite 
+A simple showcase of videogames,made with react and uses RAWG API, live demo [ignite]()
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
